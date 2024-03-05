@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<listeners>
+        <listener class-name="evs.com.listener.CustomTestListener"/>
+    </listeners>
+    
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="Username" value="codingbrains52@gmail.com"></parameter>
+	<parameter name="Password" value="Kishan@12345"></parameter>
+	
+  <test thread-count="5" name="Test">
+    <classes>
+<!--      <class name="com.evs.vtiger.testScript.FwnoticeDropDown"/>-->
+      <class name="com.evs.vtiger.testScript.LMSCommon"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
