@@ -5,13 +5,14 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import com.evs.coursemanagement.CourseManagementPagewiseClass;
+import com.evs.taskCreate.TaskCreationClass;
 import com.evs.vtiger.commonCodes.CommonResuableCode;
 
 import managementcourse.CourseMangementPagemodel;
 import superAdminemployee.SuperAdminEmployeeCreation;
 
 public class LMSCommon extends BaseClass{
-	@Test( invocationCount = 10,priority  = 1, enabled = true,retryAnalyzer = RetryAnalyzer.class)
+	@Test( invocationCount = 10,priority  = 1, enabled = false,retryAnalyzer = RetryAnalyzer.class)
 	public void lm001employee() throws IOException
 	{
 		SuperAdminEmployeeCreation em=	  new SuperAdminEmployeeCreation(kw);
@@ -62,6 +63,13 @@ public class LMSCommon extends BaseClass{
 	{
 		CourseManagementPagewiseClass cms=         new CourseManagementPagewiseClass(kw);
 		cms.Coursecreate();
+	}
+	@Test(invocationCount = 100, retryAnalyzer = RetryAnalyzer.class,enabled = true)
+	public void TaskCreation() throws InterruptedException
+	{
+		TaskCreationClass objtask=	new TaskCreationClass(kw);
+		objtask.taskcreation();
+		Thread.sleep(2000);
 	}
 
 }

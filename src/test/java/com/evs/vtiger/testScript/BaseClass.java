@@ -68,7 +68,7 @@ public class BaseClass {
 	     kw.getExtentTestObject().addScreenCaptureFromPath(snapshotPath);
 		}
 		cd.logout();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
         extent.flush();
 		
 	}

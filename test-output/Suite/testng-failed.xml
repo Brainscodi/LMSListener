@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <parameter name="Username" value="codingbrains52@gmail.com"/>
-  <parameter name="browser" value="chrome"/>
+  <parameter name="browser" value="edge"/>
   <parameter name="Password" value="Kishan@12345"/>
   <listeners>
     <listener class-name="evs.com.listener.CustomTestListener"/>
@@ -12,12 +12,11 @@
       <class name="com.evs.vtiger.testScript.LMSCommon">
         <methods>
           <include name="aftersuit"/>
-          <include name="uploadprofile"/>
           <include name="beforeClass"/>
           <include name="beforesuit"/>
+          <include name="TaskCreation"/>
           <include name="aftermethod"/>
           <include name="afterclass"/>
-          <include name="lm001employee"/>
           <include name="beforemethod"/>
         </methods>
       </class> <!-- com.evs.vtiger.testScript.LMSCommon -->

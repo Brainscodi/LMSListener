@@ -5,7 +5,7 @@
         <listener class-name="evs.com.listener.CustomTestListener"/>
     </listeners>
     
-	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser" value="edge"></parameter>
 	<parameter name="Username" value="codingbrains52@gmail.com"></parameter>
 	<parameter name="Password" value="Kishan@12345"></parameter>
 	
@@ -16,3 +16,4 @@
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
+	
