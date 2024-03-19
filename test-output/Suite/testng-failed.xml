@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <parameter name="Username" value="codingbrains52@gmail.com"/>
-  <parameter name="browser" value="edge"/>
-  <parameter name="Password" value="Kishan@12345"/>
+  <parameter name="Username" value="codingbrains13@gmail.com"/>
+  <parameter name="browser" value="chrome"/>
+  <parameter name="url" value="https://learning.projects-codingbrains.com/"/>
+  <parameter name="Password" value="Admin@1234"/>
   <listeners>
     <listener class-name="evs.com.listener.CustomTestListener"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Test1(failed)">
     <classes>
-      <class name="com.evs.vtiger.testScript.LMSCommon">
+      <class name="com.evs.vtiger.testScript.Tasks">
         <methods>
+          <include name="TaskCreation"/>
           <include name="aftersuit"/>
           <include name="beforeClass"/>
           <include name="beforesuit"/>
-          <include name="TaskCreation"/>
           <include name="aftermethod"/>
           <include name="afterclass"/>
           <include name="beforemethod"/>
         </methods>
-      </class> <!-- com.evs.vtiger.testScript.LMSCommon -->
+      </class> <!-- com.evs.vtiger.testScript.Tasks -->
+      <class name="com.evs.vtiger.testScript.SuperAdmin">
+        <methods>
+          <include name="aftersuit"/>
+          <include name="beforeClass"/>
+          <include name="beforesuit"/>
+          <include name="aftermethod"/>
+          <include name="afterclass"/>
+          <include name="lm001employee"/>
+          <include name="beforemethod"/>
+        </methods>
+      </class> <!-- com.evs.vtiger.testScript.SuperAdmin -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

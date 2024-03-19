@@ -38,11 +38,11 @@ public class BaseClass {
 		extent.attachReporter(spark);
 	}
 	
-	@Parameters({"browser"})
+	@Parameters({"browser","url"})
 	@BeforeClass
-	public void beforeClass(String browser)
+	public void beforeClass(String browser,String url)
 	{	kw.launchbrowser(browser);
-	kw.hitUrl("https://learning.projects-codingbrains.com/");
+	kw.hitUrl(url);
 	//kw.maximizeWindow();
 	
 
