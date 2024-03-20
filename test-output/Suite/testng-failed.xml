@@ -10,28 +10,11 @@
   </listeners>
   <test thread-count="5" name="Test1(failed)">
     <classes>
-      <class name="com.evs.vtiger.testScript.Tasks">
+      <class name="responsiveTesting.AutomateResponsive">
         <methods>
-          <include name="TaskCreation"/>
-          <include name="aftersuit"/>
-          <include name="beforeClass"/>
-          <include name="beforesuit"/>
-          <include name="aftermethod"/>
-          <include name="afterclass"/>
-          <include name="beforemethod"/>
+          <include name="ResponsiveTesting" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.evs.vtiger.testScript.Tasks -->
-      <class name="com.evs.vtiger.testScript.SuperAdmin">
-        <methods>
-          <include name="aftersuit"/>
-          <include name="beforeClass"/>
-          <include name="beforesuit"/>
-          <include name="aftermethod"/>
-          <include name="afterclass"/>
-          <include name="lm001employee"/>
-          <include name="beforemethod"/>
-        </methods>
-      </class> <!-- com.evs.vtiger.testScript.SuperAdmin -->
+      </class> <!-- responsiveTesting.AutomateResponsive -->
     </classes>
   </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

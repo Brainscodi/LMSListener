@@ -13,9 +13,10 @@
 	
   <test  name="Test1">
     <classes>
-      <class name="com.evs.vtiger.testScript.Tasks"/>
-      <class name="com.evs.vtiger.testScript.SuperAdmin"/>
-    </classes>
+<!--      <class name="com.evs.vtiger.testScript.Tasks"/>-->
+<!--      <class name="com.evs.vtiger.testScript.SuperAdmin"/>-->
+      <class name="responsiveTesting.AutomateResponsive"></class>   
+       </classes>
   </test> <!-- Test -->
   
   

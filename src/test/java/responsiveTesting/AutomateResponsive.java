@@ -1,43 +1,60 @@
 package responsiveTesting;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.google.common.io.Files;
+
+import net.bytebuddy.utility.RandomString;
+
 public class AutomateResponsive {
-	 // KishanWebUtil kw=KishanWebUtil.getobject();
+	WebDriver driver=null;
 	@DataProvider
-	public Object[][] mobileEmulations()
+	public Object [][] mobileEmulations()
 	{
-		return new Object[][] {
-			{"BlackBerry Z30"},
-			{"Blackberry PlayBook"},
-			{"Galaxy Note 3"},
-			{"Galaxy Note II"},
-			{"Galaxy S III"},
-			{"Galaxy S8"},
-			{"Galaxy S9+"},
-			{"Galaxy Tab S4"},
-			{"LG Optimus L70"},
-			{"Microsoft Lumia 550"}
+		return new Object [][] {
+			{"iPad Pro"},
+			{"Nexus 5"},
+			{"iPhone X"},
+			{"Pixel 2"}
+			
 		};
 	}
-	@Test(dataProvider = "mobileEmulations")
-	public void ResponsiveTesting(String emulation) throws IOException
-	{
-	  Map<String, String> deviceMobEmu=new HashMap(); 
-	  deviceMobEmu.put("deviceName", emulation);
-	  ChromeOptions chromeOpt=new ChromeOptions();
-	  chromeOpt.setExperimentalOption("mobileEmulations",deviceMobEmu);
-	   WebDriver driver=    new ChromeDriver(chromeOpt);
-	  driver.get("https://learning.projects-codingbrains.com/");
-	//kw.takeScreenshotofFullpage("C:\\Users\\CBPC-09\\Pictures\\Responsive.png");
-	}
-
+   @Test(dataProvider = "mobileEmulations")
+   public void responsiveTesting(String emulation) throws InterruptedException, IOException
+   {
+	   System.setProperty("webdriver.chrome.driver", "Driver//chromedriver.exe");
+	   Map<String, String> deviceMobEmu=new HashMap<>();
+	   deviceMobEmu.put("deviceName", emulation);
+	   ChromeOptions chromeOpt=new ChromeOptions();
+	   chromeOpt.setExperimentalOption("mobileEmulation", deviceMobEmu);
+	   driver=new ChromeDriver(chromeOpt);
+	   driver.get("https://learning.projects-codingbrains.com/login");
+	   driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("codingbrains13@gmail.com");
+	   driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("Admin@1234");
+	   driver.findElement(By.xpath("//button[@class='login-btn']")).click();
+	   Thread.sleep(5000);
+	   screenshot();
+	   
+   }
+   public void screenshot() throws IOException
+   {
+	  TakesScreenshot ts=(TakesScreenshot)driver;
+	File source=  ts.getScreenshotAs(OutputType.FILE);
+String ran=	new RandomString().make(4);
+	Files.copy(source, new File("C:\\Users\\CBPC-09\\Pictures\\Responsive\\"+ran+".png"));
+   }
+   
 }
