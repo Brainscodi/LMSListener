@@ -8,7 +8,9 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
+import java.util.function.Function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
@@ -25,7 +27,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.WheelInput.ScrollOrigin;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -88,6 +92,25 @@ public class KishanWebUtil {
 		
 
 	}
+	
+	public static WebElement fluentWaitForElement(WebDriver driver, final By locator, int timeoutSeconds) {
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(timeoutSeconds))
+                .pollingEvery(Duration.ofMillis(500))
+                .ignoring(NoSuchElementException.class);
+
+        return wait.until(driver1 -> driver1.findElement(locator));
+    }
+
+    // Example method for creating a Fluent Wait with custom conditions
+    public static WebElement fluentWaitForElementWithCustomCondition(WebDriver driver, int timeoutSeconds, int pollingIntervalMilliseconds, Function<WebDriver, WebElement> condition) {
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(timeoutSeconds))
+                .pollingEvery(Duration.ofMillis(pollingIntervalMilliseconds))
+                .ignoring(NoSuchElementException.class);
+
+        return wait.until(condition);
+    }
        
 	public String getpagesource() {
 		String getpagesource = driver.getPageSource();
